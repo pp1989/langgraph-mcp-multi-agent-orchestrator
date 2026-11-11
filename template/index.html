@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f6f7f4" />
+  <meta name="description" content="Plan thoughtful trips with TripMate AI, a multi-agent travel planner powered by LangGraph." />
+  <title>TripMate AI — Your next trip, thoughtfully planned</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="static/style.css" />
+  <script src="static/scripts.js" defer></script>
+</head>
+<body>
+  <div class="page-noise" aria-hidden="true"></div>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="TripMate AI home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 18.5 26.5 5l-8 22-4.1-7.3L5 18.5Z" fill="currentColor" />
+            <path d="m14.4 19.7 7.1-7.1" stroke="#F6F7F4" stroke-width="1.7" stroke-linecap="round" />
+          </svg>
+        </span>
+        <span class="brand-name">tripmate<span>ai</span></span>
+      </a>
+
+      <nav class="top-nav" aria-label="Main navigation">
+        <a href="#how-it-works">How it works</a>
+        <a href="#planner">Plan a trip</a>
+      </nav>
+
+      <div class="header-note"><span class="header-note-dot"></span> MULTI-AGENT TRAVEL PLANNER</div>
+    </header>
+
+    <main id="top">
+      <section class="hero-layout" aria-labelledby="hero-title">
+        <div class="hero-copy-column">
+          <div class="eyebrow"><span class="eyebrow-star">✳</span> YOUR PERSONAL TRAVEL CREW</div>
+          <h1 id="hero-title">Go further.<br /><span>Plan smarter.</span></h1>
+          <p class="hero-description">Tell us what the trip should feel like. TripMate brings flight research, stays, weather, budgets and a day-by-day plan into one clear travel brief.</p>
+
+          <div class="hero-proof-row" aria-label="TripMate capabilities">
+            <div class="proof-item"><span class="proof-number">01</span><span>Research<br />the options</span></div>
+            <div class="proof-rule" aria-hidden="true"></div>
+            <div class="proof-item"><span class="proof-number">02</span><span>Shape your<br />itinerary</span></div>
+            <div class="proof-rule" aria-hidden="true"></div>
+            <div class="proof-item"><span class="proof-number">03</span><span>Review before<br />you decide</span></div>
+          </div>
+
+          <div class="destination-note" aria-label="TripMate planning note">
+            <div class="destination-note-icon" aria-hidden="true">✦</div>
+            <div>
+              <strong>Your trip. Your call.</strong>
+              <span>Explore recommendations, review estimates and stay in control of every booking decision.</span>
+            </div>
+          </div>
+        </div>
+
+        <section class="planner-card" id="planner" aria-labelledby="planner-title">
+          <div class="planner-card-top">
+            <div>
+              <div class="card-kicker">LET'S START SOMEWHERE</div>
+              <h2 id="planner-title">Where are we going?</h2>
+              <p>Describe your trip in your own words.</p>
+            </div>
+            <div class="ready-indicator"><span></span> READY WHEN YOU ARE</div>
+          </div>
+
+          <form id="trip-form">
+            <label class="field-label" for="trip-prompt">YOUR TRIP BRIEF</label>
+            <div class="prompt-frame">
+              <div class="prompt-icon" aria-hidden="true">⌁</div>
+              <textarea id="trip-prompt" name="prompt" rows="5" maxlength="2000" placeholder="For example: Plan a 7-day Japan trip from Delhi for two people, including flights, comfortable hotels, local food and sightseeing under ₹2 lakh..." required></textarea>
+              <div class="prompt-bottomline">
+                <span class="prompt-guidance"><span aria-hidden="true">↳</span> Destination, dates, budget, travel style — add whatever you know.</span>
+                <span class="char-count" id="char-count">0 characters</span>
+              </div>
+            </div>
+
+            <div class="starter-block">
+              <div class="starter-heading"><span>NEED A SPARK?</span><span>CHOOSE A STARTER</span></div>
+              <div class="suggestions" aria-label="Example trip prompts">
+                <button class="suggestion-chip" type="button" data-prompt="Plan a 7-day Japan trip from Delhi under ₹2 lakh, including flights, hotels and sightseeing."><span>富士</span> Japan escape</button>
+                <button class="suggestion-chip" type="button" data-prompt="Plan a 5-day trip from Mumbai to Dubai for two, with flights, a good hotel, desert safari and city experiences."><span>DXB</span> Dubai break</button>
+                <button class="suggestion-chip" type="button" data-prompt="Plan a relaxed 6-day Thailand trip with beaches, local food, hotels and flights on a budget."><span>TH</span> Thailand days</button>
+              </div>
+            </div>
+
+            <button class="generate-button" id="generate-button" type="submit">
+              <span class="button-copy"><strong>Build my travel plan</strong><small>Let your AI crew get to work</small></span>
+              <span class="button-arrow" aria-hidden="true">↗</span>
+            </button>
+          </form>
+
+          <div class="planner-footnote"><span aria-hidden="true">◇</span> Planning only — you review and approve before making travel decisions.</div>
+        </section>
+      </section>
+
+      <section class="capability-strip" aria-label="What TripMate can help with">
+        <div class="capability-intro"><span>ONE BRIEF.</span><strong>A better-planned trip.</strong></div>
+        <article class="capability-item">
+          <span class="capability-icon" aria-hidden="true">✈</span>
+          <div><strong>Flight research</strong><small>Routes, schedules and fare guidance</small></div>
+        </article>
+        <article class="capability-item">
+          <span class="capability-icon" aria-hidden="true">⌂</span>
+          <div><strong>Hotel discovery</strong><small>Places to stay and area suggestions</small></div>
+        </article>
+        <article class="capability-item">
+          <span class="capability-icon" aria-hidden="true">☼</span>
+          <div><strong>Weather & budget</strong><small>Conditions and cost estimates</small></div>
+        </article>
+        <article class="capability-item">
+          <span class="capability-icon" aria-hidden="true">▤</span>
+          <div><strong>Day-wise itinerary</strong><small>A practical plan to review</small></div>
+        </article>
+      </section>
+
+      <section class="how-section" id="how-it-works" aria-labelledby="how-title">
+        <div class="section-heading">
+          <div><span class="section-kicker">FROM FIRST IDEA TO TRIP BRIEF</span><h2 id="how-title">A little help from<br /><em>the whole crew.</em></h2></div>
+          <p>Specialized agents handle different parts of the planning process, then bring their findings together into one plan.</p>
+        </div>
+
+        <div class="steps-grid">
+          <article class="step-card">
+            <div class="step-topline"><span>01 / INPUT</span><span class="step-mark">↘</span></div>
+            <div class="step-icon" aria-hidden="true">⌕</div>
+            <h3>Share the idea</h3>
+            <p>Tell TripMate where you want to go, when, who is travelling and what budget you have in mind.</p>
+          </article>
+          <article class="step-card step-card-featured">
+            <div class="step-topline"><span>02 / RESEARCH</span><span class="step-mark">✳</span></div>
+            <div class="step-icon" aria-hidden="true">⟡</div>
+            <h3>Agents work together</h3>
+            <p>The supervisor routes the request to relevant specialists for flight, hotel, weather and budget research.</p>
+          </article>
+          <article class="step-card">
+            <div class="step-topline"><span>03 / REVIEW</span><span class="step-mark">↗</span></div>
+            <div class="step-icon" aria-hidden="true">✓</div>
+            <h3>Review your plan</h3>
+            <p>Explore the itinerary, share feedback and approve the draft before it becomes your final travel plan.</p>
+          </article>
+        </div>
+      </section>
+      <!-- Add this section INSIDE your existing draft/results container, immediately after the itinerary content. -->
+<section id="hitl-approval-panel" class="hitl-approval-panel" aria-labelledby="hitl-approval-title" hidden>
+  <div class="hitl-approval-heading">
+    <div class="hitl-approval-icon" aria-hidden="true">♟</div>
+    <div>
+      <span class="hitl-approval-kicker">HUMAN-IN-THE-LOOP</span>
+      <h2 id="hitl-approval-title">Review the draft itinerary</h2>
+      <p id="hitl-approval-request">
+        Please review the generated draft itinerary. Approve it to create the final polished plan, or provide feedback for revision.
+      </p>
+    </div>
+  </div>
+
+  <label class="hitl-approval-label" for="hitl-approval-feedback">YOUR FEEDBACK</label>
+  <textarea
+    id="hitl-approval-feedback"
+    class="hitl-approval-feedback"
+    rows="3"
+    maxlength="2000"
+    placeholder="For example: add the weather information as well, reduce hotel costs, or change the sightseeing order..."
+  ></textarea>
+
+  <div class="hitl-approval-actions">
+    <button id="hitl-approve-button" class="hitl-approve-button" type="button">
+      Approve &amp; Generate Final
+    </button>
+    <button id="hitl-revise-button" class="hitl-revise-button" type="button">
+      Revise Using Feedback
+    </button>
+  </div>
+
+  <p id="hitl-approval-status" class="hitl-approval-status" role="status" aria-live="polite">
+    Your decision will resume the paused LangGraph workflow using the same thread ID.
+  </p>
+</section>
+
+      <section class="results-section" aria-labelledby="results-title">
+        <div class="results-heading">
+          <div><span class="section-kicker">YOUR PLAN, ALL IN ONE PLACE</span><h2 id="results-title">The trip brief</h2></div>
+          <span class="results-caption">YOUR GENERATED RESULTS WILL APPEAR BELOW</span>
+        </div>
+        <div id="plan-output" class="plan-output" aria-live="polite" aria-busy="false"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true">✈</span><span class="brand-name">tripmate<span>ai</span></span></a>
+      <span class="footer-message">Make room for the journey.</span>
+      <span class="footer-tech">BUILT WITH LANGGRAPH · MULTI-AGENT AI</span>
+    </footer>
+  </div>
+</body>
+</html>

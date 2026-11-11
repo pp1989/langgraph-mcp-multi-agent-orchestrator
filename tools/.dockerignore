@@ -1,0 +1,8 @@
+#Envirenment
+.venv
+env/
+VENV/
+ENV/
+env.bak/
+vent.bak/
+

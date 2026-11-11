@@ -1,0 +1,22 @@
+{
+"version": "0.2.0",
+"configurations": [
+{
+"name": "TripMate FastAPI Debug",
+"type": "debugpy",
+"request": "launch",
+"module": "uvicorn",
+"args": [
+"app",
+"--host",
+"127.0.0.1",
+"--port",
+"8000"
+],
+"cwd": "${workspaceFolder}",
+"console": "integratedTerminal",
+"justMyCode": false,
+"envFile": "${workspaceFolder}/.env"
+}
+]
+}
